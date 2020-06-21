@@ -6,7 +6,7 @@ export default () => {
     };
 
     let windowWidth = 0;
-    let imageWidth = 643;
+    let imageWidth = 641;
     let slider_loop_inner = document.querySelector(".slider_loop_inner");
     let slider_loop_inner_li = document.querySelectorAll(
       ".slider_loop_inner li"
@@ -15,19 +15,30 @@ export default () => {
       let clone = value.cloneNode(true);
       slider_loop_inner.append(clone);
     });
+
+    var resizetimer = false;
+    $(window).resize(function() {
+      if (resizetimer !== false) {
+        clearTimeout(resizetimer);
+      }
+      resizetimer = setTimeout(function() {
+        loopSetUp();
+      }, 200);
+    });
+
     //loopSetUp関数
     function loopSetUp() {
       let windowWidth = window.innerWidth;
 
       switch (true) {
         case windowWidth > 768:
-          imageWidth = 643;
+          imageWidth = 641;
           break;
         case windowWidth > 400:
-          imageWidth = 643;
+          imageWidth = 641;
           break;
         default:
-          imageWidth = 643;
+          imageWidth = 641;
       }
 
       document.querySelectorAll(".slider_loop_inner li").forEach((value) => {
