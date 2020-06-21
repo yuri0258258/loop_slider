@@ -1,6 +1,23 @@
-body{
-    color:blue;
-    h1{
-        font-size: 50px;
+.col{
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
     }
+}
+
+.slider_loop {
+  position: relative;
+  overflow: hidden;
+  .slider_loop_inner {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      float: left;
+    }
+  }
 }
